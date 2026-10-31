@@ -36,3 +36,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 pytest -q
 ```
+## Design Explanation
+
+The Adapter Pattern allows Checkout to use LegacyCarrier without modifying the existing classes.
+
+LegacyCarrierAdapter implements the ShippingQuoteProvider interface and translates the quote request into the format expected by LegacyCarrier, including the conversion from kilograms to pounds.
+
+## Complexity Cost
+
+The Adapter introduces an additional class that must be maintained. If the legacy carrier changes its interface, the adapter may also need to be updated.
